@@ -2,12 +2,12 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast/headless";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [user, settUser] = React.useState({
+  const [user, setUser] = React.useState({
     email: "",
     password: "",
   });
@@ -38,38 +38,54 @@ export default function LoginPage() {
   }, [user]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="mb-4">{loading ? "Loading" : "Login"}</h1>
-      <label htmlFor="email">Email</label>
-      <input
-        className="p-2 mb-2 text-black border border-gray-300 rounded-lg-mb-4 focus:outline-none focus:ring-2 focus:ring-gray-600 "
-        id="email"
-        type="text"
-        placeholder="email"
-        value={user.email}
-        onChange={(e) => settUser({ ...user, email: e.target.value })}
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        className="p-2 mb-4 text-black border border-gray-300 rounded-lg-mb-4 focus:outline-none focus:ring-2 focus:ring-gray-600 "
-        id="password"
-        type="password"
-        placeholder="password"
-        value={user.password}
-        onChange={(e) => settUser({ ...user, password: e.target.value })}
-      />
-      <button
-        onClick={onLogin}
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 w-full">
+      <pre className="mb-4">{loading ? "Loading" : "Login"}</pre>
+      <pre data-prefix=">" className="text-warning">
+        <code>
+          <input
+            id="email"
+            type="email"
+            value={user.email}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            placeholder="Email"
+            className="input w-fit max-w-xs bg-transparent p-0 mb-2"
+          />
+        </code>
+      </pre>
+      <pre data-prefix=">" className="text-success">
+        <code>
+          <input
+            id="password"
+            type="password"
+            value={user.password}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            placeholder="Password"
+            className="input w-fit max-w-xs bg-transparent p-0"
+          />
+        </code>
+      </pre>
+      <pre data-prefix="#" className="text-accent">
+        <code>
+          <button
+            onClick={onLogin}
+            // className={`mt-2 ${buttonDisabled ? "btn-disabled" : ""} `}
+            className={`mt-2 p-1 pl-2 pr-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600`}
+          >
+            Login
+          </button>
+        </code>
+      </pre>
+      <pre
+        data-prefix="~"
+        className="bg-warning text-warning-content mt-5 text-sm"
       >
-        {buttonDisabled ? "Can't Login" : "Login"}
-      </button>
-      <p>
-        Don&apos;t have an account!
-        <Link href="/signup" className="ml-1 underline">
-          Signup
-        </Link>
-      </p>
+        <code>
+          Don&apos;t have an account?{" "}
+          <Link href="/signup" className="cursor-pointer underline">
+            Sign Up
+          </Link>
+        </code>
+      </pre>
     </div>
   );
 }
