@@ -32,20 +32,20 @@ export default function VerifyEmailPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-4xl mb-4">Verify Email</h1>
-      <h2 className="p-2 mb-4 bg-orange-500 text-black">
+      <pre className="text-4xl mb-4">Verify Email</pre>
+      <pre className="p-2 mb-4 bg-orange-500 rounded-lg text-black">
         {token ? `${token}` : "no token"}
-      </h2>
+      </pre>
 
       {verified && (
         <div>
-          <h2 className="text-2xl  bg-green-500">Email Verified</h2>
+          <pre className="text-2xl  bg-green-500">Email Verified</pre>
           <Link href="/login">Login</Link>
         </div>
       )}
       {error && (
         <div>
-          <h2 className="text-2xl bg-red-500 text-black">Error</h2>
+          <pre className="text-2xl items-center bg-red-500 rounded-lg text-black">Error</pre>
         </div>
       )}
     </div>
