@@ -68,7 +68,6 @@ export default function LoginPage() {
         <code>
           <button
             onClick={onLogin}
-            // className={`mt-2 ${buttonDisabled ? "btn-disabled" : ""} `}
             className={`mt-2 p-1 pl-2 pr-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600`}
           >
             Login
