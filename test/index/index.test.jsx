@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
-import LoginPage from "../../../../../src/app/login/page.tsx";
+import LoginPage from "../../src/app/login/page";
 
 jest.mock("next/navigation", () => ({
   useRouter: () => ({
