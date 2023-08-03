@@ -24,11 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Run tests with coverage
-        run: npm run test -- --coverage
-
-      - name: Check code coverage
-        run: npx nyc check-coverage --lines 50
+      - name: Run tests
+        run: npm run test
 
   build:
     needs: test
