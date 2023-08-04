@@ -15,7 +15,7 @@ mockedAxios.post.mockResolvedValue({ data: { message: "Login success" } });
 describe("LoginPage", () => {
   it("should handle email input correctly", () => {
     render(<LoginPage />);
-    const emailInput = screen.getByPlaceholderText("Email");
+    const emailInput = screen.getByPlaceholderText("Email...");
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
     expect(emailInput.value).toBe("test@example.com");
   });
