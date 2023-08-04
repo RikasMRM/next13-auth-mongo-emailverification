@@ -47,7 +47,7 @@ export default function LoginPage() {
             type="email"
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
-            placeholder="Email"
+            placeholder="Email..."
             className="input w-fit max-w-xs bg-transparent p-0 mb-2"
           />
         </code>
@@ -59,7 +59,7 @@ export default function LoginPage() {
             type="password"
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
-            placeholder="Password"
+            placeholder="Password..."
             className="input w-fit max-w-xs bg-transparent p-0"
           />
         </code>
